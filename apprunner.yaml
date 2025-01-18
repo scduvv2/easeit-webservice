@@ -6,7 +6,8 @@ build:
       - pthon3 -m venv env
       - env\scripts\activate
       - sudo apt install python3-pip
-      - pip install Flask
-      - pip install jsons
+
 run: 
-  command: python app.py
+  commands:
+      - pip install Flask
+      - python app.py
