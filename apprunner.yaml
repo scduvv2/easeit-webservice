@@ -4,6 +4,6 @@ build:
   commands:
     build:
       - python3.11 -m ensurepip --upgrade
-      - python3.11 -m pip install -r requirements.txt
+      - pip install Flask
 run: 
   command: python app.py
