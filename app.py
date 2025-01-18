@@ -9,12 +9,12 @@ todos = [
     {'id': 3, 'task': 'Go for a run', 'completed': False}
 ]
 
-# Get all todos
+
 @app.route('/todos', methods=['GET'])
 def get_all_todos():
     return jsonify(todos)
 
-# Get a single todo by ID
+
 @app.route('/todos/<int:todo_id>', methods=['GET'])
 def get_todo(todo_id):
     for todo in todos:
@@ -22,19 +22,19 @@ def get_todo(todo_id):
             return jsonify(todo)
     return jsonify({'message': 'Todo not found'}), 404
 
-# Create a new todo
+
 @app.route('/todos', methods=['POST'])
 def create_todo():
     data = request.get_json()
     new_todo = {
         'id': len(todos) + 1,
         'task': data['task'],
-        'completed': False
+        'completed': data['completed']
     }
     todos.append(new_todo)
     return jsonify(new_todo), 201
 
-# Update an existing todo
+
 @app.route('/todos/<int:todo_id>', methods=['PUT'])
 def update_todo(todo_id):
     for todo in todos:
@@ -44,7 +44,7 @@ def update_todo(todo_id):
             return jsonify(todo)
     return jsonify({'message': 'Todo not found'}), 404
 
-# Delete a todo
+
 @app.route('/todos/<int:todo_id>', methods=['DELETE'])
 def delete_todo(todo_id):
     for i, todo in enumerate(todos):
