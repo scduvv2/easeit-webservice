@@ -6,4 +6,4 @@ build:
       - pip3 install flask
 
 run: 
-  command: python app.py
+  command: python3 app.py
