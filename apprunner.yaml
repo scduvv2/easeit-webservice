@@ -3,6 +3,8 @@ runtime: python311
 build:
   commands:
     build:
+      - python3 -m venv env
+      - env\Scripts\activate
       - pip3 install flask
 
 run: 
